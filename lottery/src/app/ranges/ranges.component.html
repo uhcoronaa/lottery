@@ -1,1 +1,5 @@
 <button (click)="createRange()">Uffffff</button>
+
+<div *ngFor="let range of ranges$|async">
+    <p>{{range.initialValue}} - {{range.finalValue}}</p>
+</div>

@@ -31,6 +31,6 @@ export class RangesCommand {
     ranges.push(range);
     localStorage.setItem('ranges', JSON.stringify(ranges));
 
-    this.store.dispatch(createRange(range));
+    this.store.dispatch(createRange({range}));
   }
 }
