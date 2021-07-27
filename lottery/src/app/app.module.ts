@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { RangesComponent } from './ranges/ranges.component';
 import { AppReducer } from './store/app.state';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,6 +17,7 @@ import { AppReducer } from './store/app.state';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     StoreModule.forRoot(AppReducer)
   ],
   providers: [],

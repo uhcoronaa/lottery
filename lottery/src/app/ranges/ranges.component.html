@@ -12,10 +12,10 @@
     <div class="row">
         <div class="col-md-6">
             <section class="contact-clean">
-                <form method="post">
+                <form [formGroup]="rangeForm" (ngSubmit)="createRange()">
                     <h2 class="text-center">Range</h2>
-                    <div class="form-group"><input class="form-control" type="text" placeholder="Initial Value"></div>
-                    <div class="form-group"><input class="form-control" type="text" placeholder="Final Value"></div>
+                    <div class="form-group"><input class="form-control" type="text" placeholder="Initial Value" formControlName="initialValue"></div>
+                    <div class="form-group"><input class="form-control" type="text" placeholder="Final Value" formControlName="finalValue"></div>
                     <div class="form-group"><button class="btn btn-primary" type="submit">Create Range</button></div>
                 </form>
             </section>

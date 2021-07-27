@@ -5,6 +5,7 @@ import { Range } from '../models/range.model';
 import { AppState } from '../store/app.state';
 import { RangesCommand } from './state/ranges.command';
 import { getRanges } from './state/ranges.selector';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-ranges',
@@ -13,9 +14,15 @@ import { getRanges } from './state/ranges.selector';
 })
 export class RangesComponent implements OnInit {
 
+  rangeForm: FormGroup;
   ranges$: Observable<Range[]>;
 
-  constructor(private rangesCommand: RangesCommand, private store: Store<AppState>) { }
+  constructor(private rangesCommand: RangesCommand, private store: Store<AppState>, private fb: FormBuilder) {
+    this.rangeForm = this.fb.group({
+      initialValue: ['', Validators.required],
+      finalValue: ['', Validators.required],
+    });
+  }
 
   ngOnInit(): void {
     this.rangesCommand.loadInitialData();
@@ -23,10 +30,7 @@ export class RangesComponent implements OnInit {
   }
 
   createRange() {
-    let range: Range = {
-      initialValue: 10,
-      finalValue: 20
-    }
+    let range: Range = this.rangeForm.value;
     this.rangesCommand.createRange(range);
   }
 
