@@ -1,10 +1,16 @@
 .contact-clean {
     padding: 80px 80px;
-  }
-  
-  @media (max-width:767px) {
+}
+
+.table-clean{
+    max-height: 500px;
+}
+
+@media (max-width:767px) {
     .contact-clean {
       padding: 20px 0;
     }
-  }
-  
+    .table-clean{
+        max-height: none;
+    }
+}
