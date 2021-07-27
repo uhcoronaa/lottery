@@ -1,5 +1,42 @@
-<button (click)="createRange()">Uffffff</button>
-
-<div *ngFor="let range of ranges$|async">
-    <p>{{range.initialValue}} - {{range.finalValue}}</p>
+<nav class="navbar navbar-dark navbar-expand-md bg-dark">
+    <div class="container-fluid"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link active" href="#">Ranges</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Winners</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <section class="contact-clean">
+                <form method="post">
+                    <h2 class="text-center">Range</h2>
+                    <div class="form-group"><input class="form-control" type="text" placeholder="Initial Value"></div>
+                    <div class="form-group"><input class="form-control" type="text" placeholder="Final Value"></div>
+                    <div class="form-group"><button class="btn btn-primary" type="submit">Create Range</button></div>
+                </form>
+            </section>
+        </div>
+        <div class="col-md-6">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Initial Range</th>
+                            <th>Final Range</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let range of ranges$ |async">
+                            <td>{{range.initialValue}}</td>
+                            <td>{{range.finalValue}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
