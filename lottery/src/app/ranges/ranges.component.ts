@@ -35,6 +35,7 @@ export class RangesComponent implements OnInit {
       finalValue: Number(this.rangeForm.value.finalValue)
     };
     this.rangesCommand.createRange(range);
+    this.rangeForm.reset();
   }
 
 }

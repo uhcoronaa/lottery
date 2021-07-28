@@ -3,7 +3,6 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Winner } from '../models/winner.model';
 import { AppState } from '../store/app.state';
-import { createWinner } from './state/winner.action';
 import { WinnersCommand } from './state/winner.command';
 import { getWinners } from './state/winner.selector';
 
