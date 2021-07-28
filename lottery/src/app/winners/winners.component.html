@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mt-5">
+            <h1 style="text-align: center;">Tickets Status</h1>
+            <div class="d-flex flex-wrap">
+                <div class="mr-3 mt-3" *ngFor="let option of options$|async">
+                    <button class="btn btn-success btn-size" *ngIf="option.winner">
+                        {{option.option}}
+                    </button>
+                    <button class="btn btn-danger btn-size" *ngIf="!option.winner">
+                        {{option.option}}
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mt-5">
+            <h1 style="text-align: center;">Winners</h1>
+            <button class="btn btn-success" (click)="generateWinner()" [disabled]="(options$ |async).length==0">Generate
+                Winner</button>
+            <div class="table-responsive mt-3">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Winner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let option of options$|async">
+                            <td class="text-center" *ngIf="option.winner">{{option.option}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
