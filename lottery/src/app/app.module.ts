@@ -8,11 +8,15 @@ import { RangesComponent } from './ranges/ranges.component';
 import { AppReducer } from './store/app.state';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { WinnersComponent } from './winners/winners.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RangesComponent
+    RangesComponent,
+    WinnersComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

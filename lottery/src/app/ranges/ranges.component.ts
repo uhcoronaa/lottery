@@ -30,7 +30,10 @@ export class RangesComponent implements OnInit {
   }
 
   createRange() {
-    let range: Range = this.rangeForm.value;
+    let range: Range = {
+      initialValue: Number(this.rangeForm.value.initialValue),
+      finalValue: Number(this.rangeForm.value.finalValue)
+    };
     this.rangesCommand.createRange(range);
   }
 
