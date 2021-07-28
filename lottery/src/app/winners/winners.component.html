@@ -15,7 +15,8 @@
         </div>
         <div class="col-md-6 mt-5">
             <h1 style="text-align: center;">Winners</h1>
-            <button class="btn btn-success" (click)="generateWinner()">Generate Winner</button>
+            <button class="btn btn-success" (click)="generateWinner()" [disabled]="(options$ |async).length==0">Generate
+                Winner</button>
             <div class="table-responsive mt-3">
                 <table class="table">
                     <thead>

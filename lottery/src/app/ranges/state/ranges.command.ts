@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Range } from 'src/app/models/range.model';
+import { Winner } from 'src/app/models/winner.model';
 import { AppState } from 'src/app/store/app.state';
 import { createRange, loadRanges } from './ranges.action';
 import { getRanges } from './ranges.selector';
@@ -79,6 +80,17 @@ export class RangesCommand {
       ranges.push(range);
       localStorage.setItem('ranges', JSON.stringify(ranges));
       this.store.dispatch(createRange({ range }));
+
+      let winnersString = localStorage.getItem('winners');
+      let winnersObject = JSON.parse(winnersString);
+      let winners: Winner[] = winnersObject ? winnersObject : [];
+
+      for (let i = Number(range.initialValue); i <= range.finalValue; i++) {
+        winners.push({ option: i, winner: false });
+      }
+
+      localStorage.setItem('winners', JSON.stringify(winners));
+
       alert('Range Created');
     }
 

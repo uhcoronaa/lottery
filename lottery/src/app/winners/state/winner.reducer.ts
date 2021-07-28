@@ -5,10 +5,10 @@ import { initialState } from "./winner.state";
 const _winnerReducer = createReducer(
     initialState,
     on(createWinner, (state, action) => {
+
         let updatedWinners = state.winners.map(winner => {
             return winner.option == action.winner.option ? action.winner : winner;
         });
-
         return {
             ...state,
             winners: updatedWinners
